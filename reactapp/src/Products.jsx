@@ -18,13 +18,17 @@ export default function Products() {
             <div className="col-lg-4 mt-4 arukep">
               <h4>Dália</h4>
               <Link to="/order">
-                <img src="kepek/dalia.jpg" alt="Dália" className="img-fluid" />
+                <img
+                  src="src/kepek/dalia.jpg"
+                  alt="Dália"
+                  className="img-fluid"
+                />
               </Link>
             </div>
             <div className="col-lg-4 mt-4 arukep">
               <h4>Százszorszép</h4>
               <img
-                src="kepek/szazszorszep.jpg"
+                src="src/kepek/szazszorszep.jpg"
                 alt="Százszorszép"
                 className="img-fluid"
               />
@@ -32,7 +36,7 @@ export default function Products() {
             <div className="col-lg-4 mt-4 arukep">
               <h4>Levendula</h4>
               <img
-                src="kepek/levendula.jpg"
+                src="src/kepek/levendula.jpg"
                 alt="Levendula"
                 className="img-fluid"
               />
@@ -40,7 +44,7 @@ export default function Products() {
             <div className="col-lg-4 mt-4 arukep">
               <h4>Petúnia</h4>
               <img
-                src="kepek/petunia.jpg"
+                src="src/kepek/petunia.jpg"
                 alt="Petúnia"
                 className="img-fluid"
               />
@@ -48,7 +52,7 @@ export default function Products() {
             <div className="col-lg-4 mt-4 arukep">
               <h4>Bazsalikom</h4>
               <img
-                src="kepek/bazsalikom.JPG"
+                src="src/kepek/bazsalikom.JPG"
                 alt="Bazsalikom"
                 className="img-fluid"
               />
@@ -56,7 +60,7 @@ export default function Products() {
             <div className="col-lg-4 mt-4 arukep">
               <h4>Rozmaring</h4>
               <img
-                src="kepek/rozmaring.JPG"
+                src="src/kepek/rozmaring.JPG"
                 alt="Rozmaring"
                 className="img-fluid"
               />
@@ -64,7 +68,7 @@ export default function Products() {
             <div className="col-lg-4 mt-4 arukep">
               <h4>Paradicsom</h4>
               <img
-                src="kepek/paradicsom.jpg"
+                src="src/kepek/paradicsom.jpg"
                 alt="Paradicsom"
                 className="img-fluid"
               />
@@ -72,7 +76,7 @@ export default function Products() {
             <div className="col-lg-4 mt-4 arukep">
               <h4>Sárgarépa</h4>
               <img
-                src="kepek/sargarepa.jpg"
+                src="src/kepek/sargarepa.jpg"
                 alt="Sárgarépa"
                 className="img-fluid"
               />
@@ -80,7 +84,7 @@ export default function Products() {
             <div className="col-lg-4 mt-4 arukep">
               <h4>Karalábé</h4>
               <img
-                src="kepek/karalabe.jpg"
+                src="src/kepek/karalabe.jpg"
                 alt="Karalábé"
                 className="img-fluid"
               />
@@ -88,20 +92,24 @@ export default function Products() {
             <div className="col-lg-4 mt-4 arukep">
               <h4>Szamóca</h4>
               <img
-                src="kepek/szamoca.JPG"
+                src="src/kepek/szamoca.JPG"
                 alt="Szamóca"
                 className="img-fluid"
               />
             </div>
             <div className="col-lg-4 mt-4 arukep">
               <h4>Málna</h4>
-              <img src="kepek/malna.JPG" alt="Málna" className="img-fluid" />
+              <img
+                src="src/kepek/malna.JPG"
+                alt="Málna"
+                className="img-fluid"
+              />
             </div>
             <div className="col-lg-4 mt-4 arukep">
               <h4>Chili paprika</h4>
               <img
-                src="kepek/chili-paprika.jpg"
-                alt="Málna"
+                src="src/kepek/chili-paprika.jpg"
+                alt="Chili paprika"
                 className="img-fluid"
               />
             </div>
