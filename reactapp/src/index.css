@@ -72,9 +72,10 @@ button:focus-visible {
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1.6rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  font-size: 1.6rem !important;
   margin: 0;
+  place-items: normal !important;
 }
 
 #nyito {

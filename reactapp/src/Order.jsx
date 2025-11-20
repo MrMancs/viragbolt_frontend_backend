@@ -47,7 +47,7 @@ export default function Order() {
           </div>
         </div>
       </main>
-      <footer className="container">
+      <footer className="container-fluid">
         <div className="row">
           <div className="col-md-4 col-lg-2">
             <h3>Nyitvatartás:</h3>
