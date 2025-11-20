@@ -1,3 +1,5 @@
+/* npm i react-router-dom react-router react-bootstrap bootstrap express mysql2 cory */
+
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
