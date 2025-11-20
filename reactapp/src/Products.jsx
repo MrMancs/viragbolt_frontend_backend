@@ -7,7 +7,7 @@ export default function Products() {
       <div>
         <header>
           <Link to="/">
-            <img src="./sunflower.jpg" alt="fa" id="logo" />
+            <img src="src/kepek/sunflower.jpg" alt="fa" id="logo" />
           </Link>
           <h1>Nevenincs Bt.</h1>
           <h2>Vetőmagok - Mindenféle, minden mennyiségben</h2>
