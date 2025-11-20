@@ -81,7 +81,7 @@ body {
   color: white;
   background-position: center;
   height: 100vh;
-  background-image: url("fokep.jpg");
+  background-image: url("src/kepek/fokep.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }

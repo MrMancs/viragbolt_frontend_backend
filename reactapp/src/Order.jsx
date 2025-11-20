@@ -18,7 +18,7 @@ export default function Order() {
         <h2>Dália (Kerti virág)</h2>
         <div className="row">
           <div className="col-md-6">
-            <img src="kepek/dalia.jpg" alt="Dália" className="img-thumbnail" />
+            <img src="src/kepek/dalia.jpg" alt="Dália" className="img-thumbnail" />
           </div>
           <div className="col-md-6">
             <p>
