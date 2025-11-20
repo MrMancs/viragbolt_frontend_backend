@@ -1,47 +1,24 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import "./App.css";
+
+import OpeningPage from "./OpeningPage.jsx";
+import Products from "./Products.jsx";
+import Order from "./Order.jsx";
 
 export default function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <div id="nyito">
-        <header>
-          <img src="./sunflower.jpg" alt="fa" id="logo" />
-          <h1>Nevenincs Bt.</h1>
-          <h2>Vetőmagok - Mindenféle, minden mennyiségben</h2>
-        </header>
-        <main>
-          <a href="aruk.html">Válasszon vetőmagjainkból!</a>
-        </main>
-        <footer class="container">
-          <div class="row">
-            <div class="col-md-4 col-lg-4">
-              <h3>Nyitvatartás:</h3>
-            </div>
-            <div class="col-md-8 col-lg-8">
-              <ul>
-                <li>Hétfő-Péntek: 8-17 óráig</li>
-                <li>Szombat: 8-13 óráig</li>
-                <li>Vasárnap: 9-12 óráig</li>
-              </ul>
-            </div>
-            <div class="col-md-4 col-lg-4">
-              <h3>Kapcsolat:</h3>
-            </div>
-            <div class="col-md-8 col-lg-8">
-              <ul>
-                <li>06-30/111-1111</li>
-                <li>06-70/111-1111</li>
-                <li>nevenincsbt@gmail.com</li>
-              </ul>
-            </div>
-          </div>
-        </footer>
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<OpeningPage />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/order" element={<Order />} />
+        </Routes>
+      </Router>
     </>
   );
 }
