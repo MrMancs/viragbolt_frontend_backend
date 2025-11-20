@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Order() {
+  const [flower, setFlower] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      await fetch("http://localhost:3333/api/flowers/1", {
+        method: "GET",
+      })
+        .then(async (res) => {
+          const data = await res.json();
+          setFlower(data);
+        })
+        .catch((err) => console.log(err))
+        .finally();
+    }
+    fetchData();
+  }, []);
+
+  //console.log(flower);
+
   return (
     <div>
       <header>
@@ -18,7 +37,11 @@ export default function Order() {
         <h2>Dália (Kerti virág)</h2>
         <div className="row">
           <div className="col-md-6">
-            <img src="src/kepek/dalia.jpg" alt="Dália" className="img-thumbnail" />
+            <img
+              src="src/kepek/dalia.jpg"
+              alt="Dália"
+              className="img-thumbnail"
+            />
           </div>
           <div className="col-md-6">
             <p>
@@ -27,23 +50,26 @@ export default function Order() {
               rendszeres vízellátást igényelnek. Virágzási idejük júliustól
               októberig tart. Kiválóan alkalmasak vágott virágnak.{" "}
             </p>
-            <form>
-              <p className="text-center">
-                <span id="ar">Ár: 356 Ft</span>
-                <label for="mennyiseg">Mennyiség:</label>
-                <input
-                  type="number"
-                  name="mennyiseg"
-                  id="mennyiseg"
-                  min="1"
-                  max="999"
-                  value="1"
-                />
-              </p>
-              <p className="text-center">
-                <button className="btn btn-warning btn-lg">Megrendelem</button>
-              </p>
-            </form>
+            <span id="ar">Ár: 356 Ft</span>
+            {flower.map((flower) =>
+              flower.keszlet > 0 ? (
+                <form>
+                  <span>Mennyiség: </span>
+                  <input
+                    type="number"
+                    name="mennyiseg"
+                    id="mennyiseg"
+                    min="1"
+                    max="999"
+                  />
+                    <button className="btn btn-warning btn-lg ">
+                      Megrendelem
+                    </button>
+                </form>
+              ) : (
+                <span> Nincs készleten</span>
+              )
+            )}
           </div>
         </div>
       </main>
