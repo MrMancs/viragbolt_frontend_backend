@@ -1,5 +1,8 @@
 import React from "react";
+
 import { Link } from "react-router";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function OpeningPage() {
   return (
