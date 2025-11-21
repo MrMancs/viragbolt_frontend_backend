@@ -60,7 +60,7 @@ export default function Order() {
                     name="mennyiseg"
                     id="mennyiseg"
                     min="1"
-                    max="999"
+                    max={flower.keszlet}
                   />
                     <button className="btn btn-warning btn-lg ">
                       Megrendelem
