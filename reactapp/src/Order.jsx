@@ -22,6 +22,28 @@ export default function Order() {
     fetchData();
   }, []);
 
+  const handleOrder = async (e) => {
+    e.preventDefault();
+    //console.log(flower[0].keszlet)
+    await fetch("http://localhost:3333/api/flowers/1", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "nev": "Dália",
+        leiras:
+          "A dáliák gumós, fagyérzékeny évelők. Tápanyagdús talajban virágoznak a legszebben. Vízigényük közepes, virágzásuk idején rendszeres vízellátást igényelnek. Virágzási idejük júliustól októberig tart. Kiválóan alkalmasak vágott virágnak.",
+        ar: 356,
+        keszlet: 10,
+        kepUrl:
+          "https://res.cloudinary.com/myblog2024/image/upload/v1737373736/fotok/dalia_h4rdyr.jpg",
+        kategoriaId: 1,
+        keszlet: flower[0].keszlet - document.getElementById("mennyiseg").value,
+      }),
+    });
+  };
+
   //console.log(flower);
 
   return (
@@ -67,6 +89,7 @@ export default function Order() {
                   <button
                     className="btn btn-warning btn-lg "
                     style={{ maxWidth: "200px" }}
+                    onClick={handleOrder}
                   >
                     Megrendelem
                   </button>
