@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Order() {
   const [flower, setFlower] = useState([]);
+  const [mennyiseg, setMennyiseg] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
@@ -25,24 +27,43 @@ export default function Order() {
   const handleOrder = async (e) => {
     e.preventDefault();
     //console.log(flower[0].keszlet)
-    await fetch("http://localhost:3333/api/flowers/1", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        "nev": "Dália",
-        leiras:
-          "A dáliák gumós, fagyérzékeny évelők. Tápanyagdús talajban virágoznak a legszebben. Vízigényük közepes, virágzásuk idején rendszeres vízellátást igényelnek. Virágzási idejük júliustól októberig tart. Kiválóan alkalmasak vágott virágnak.",
-        ar: 356,
-        keszlet: 10,
-        kepUrl:
-          "https://res.cloudinary.com/myblog2024/image/upload/v1737373736/fotok/dalia_h4rdyr.jpg",
-        kategoriaId: 1,
-        keszlet: flower[0].keszlet - document.getElementById("mennyiseg").value,
-      }),
-    });
+
+    if (mennyiseg <= 0 || mennyiseg > flower[0].keszlet || mennyiseg === "" || mennyiseg %1!==0) {
+      alert("⚠️Érvénytelen mennyiség!⚠️");
+      console.log("⚠️Érvénytelen mennyiség!⚠️");
+      navigate("/termekek");
+    } else {
+      await fetch("http://localhost:3333/api/flowers/1", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nev: "Dália",
+          leiras:
+            "A dáliák gumós, fagyérzékeny évelők. Tápanyagdús talajban virágoznak a legszebben. Vízigényük közepes, virágzásuk idején rendszeres vízellátást igényelnek. Virágzási idejük júliustól októberig tart. Kiválóan alkalmasak vágott virágnak.",
+          ar: 356,
+          keszlet: 10,
+          kepUrl:
+            "https://res.cloudinary.com/myblog2024/image/upload/v1737373736/fotok/dalia_h4rdyr.jpg",
+          kategoriaId: 1,
+          keszlet:
+            flower[0].keszlet - document.getElementById("mennyiseg").value,
+        }),
+      });
+      navigate("/termekek");
+      alert("✅Sikeres rendelés!✅");
+    }
   };
+
+  const handleChange = (e) => {
+    if (e.target.value < 0 || e.target.value > flower[0].keszlet) {
+      
+    } else {
+      setMennyiseg(e.target.value);
+    }
+  };
+  //console.log(mennyiseg);
 
   //console.log(flower);
 
@@ -83,7 +104,10 @@ export default function Order() {
                       name="mennyiseg"
                       id="mennyiseg"
                       min="1"
+                      value={mennyiseg}
+                      onChange={handleChange}
                       max={flower.keszlet}
+                      required
                     />
                   </div>
                   <button
