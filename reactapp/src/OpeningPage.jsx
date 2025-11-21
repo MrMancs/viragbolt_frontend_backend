@@ -15,7 +15,7 @@ export default function OpeningPage() {
         <h2>Vetőmagok - Mindenféle, minden mennyiségben</h2>
       </header>
       <main>
-        <Link to="/products">
+        <Link to="/termekek">
           <span>Válasszon vetőmagjainkból!</span>
         </Link>
       </main>

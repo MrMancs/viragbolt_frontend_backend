@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Products() {
+  const [flowers, setFlowers] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      await fetch("http://localhost:3333/api/flowers", {
+        method: "GET",
+      })
+        .then(async (res) => {
+          const data = await res.json();
+          setFlowers(data);
+        })
+        .catch((err) => console.log(err))
+        .finally();
+    }
+    fetchData();
+  }, []);
+
+  //console.log(flowers);
+
   return (
     <>
       <div>
@@ -20,102 +39,24 @@ export default function Products() {
             <h2>Vetőmagjaink:</h2>
             <div className="col-lg-4 mt-4 arukep">
               <h4>Dália</h4>
-              <Link to="/order">
+              <Link to="/rendeles">
                 <img
-                  src="src/kepek/dalia.jpg"
+                  src="/src/kepek/dalia.jpg"
                   alt="Dália"
                   className="img-fluid"
                 />
               </Link>
             </div>
-            <div className="col-lg-4 mt-4 arukep">
-              <h4>Százszorszép</h4>
-              <img
-                src="src/kepek/szazszorszep.jpg"
-                alt="Százszorszép"
-                className="img-fluid"
-              />
-            </div>
-            <div className="col-lg-4 mt-4 arukep">
-              <h4>Levendula</h4>
-              <img
-                src="src/kepek/levendula.jpg"
-                alt="Levendula"
-                className="img-fluid"
-              />
-            </div>
-            <div className="col-lg-4 mt-4 arukep">
-              <h4>Petúnia</h4>
-              <img
-                src="src/kepek/petunia.jpg"
-                alt="Petúnia"
-                className="img-fluid"
-              />
-            </div>
-            <div className="col-lg-4 mt-4 arukep">
-              <h4>Bazsalikom</h4>
-              <img
-                src="src/kepek/bazsalikom.JPG"
-                alt="Bazsalikom"
-                className="img-fluid"
-              />
-            </div>
-            <div className="col-lg-4 mt-4 arukep">
-              <h4>Rozmaring</h4>
-              <img
-                src="src/kepek/rozmaring.JPG"
-                alt="Rozmaring"
-                className="img-fluid"
-              />
-            </div>
-            <div className="col-lg-4 mt-4 arukep">
-              <h4>Paradicsom</h4>
-              <img
-                src="src/kepek/paradicsom.jpg"
-                alt="Paradicsom"
-                className="img-fluid"
-              />
-            </div>
-            <div className="col-lg-4 mt-4 arukep">
-              <h4>Sárgarépa</h4>
-              <img
-                src="src/kepek/sargarepa.jpg"
-                alt="Sárgarépa"
-                className="img-fluid"
-              />
-            </div>
-            <div className="col-lg-4 mt-4 arukep">
-              <h4>Karalábé</h4>
-              <img
-                src="src/kepek/karalabe.jpg"
-                alt="Karalábé"
-                className="img-fluid"
-              />
-            </div>
-            <div className="col-lg-4 mt-4 arukep">
-              <h4>Szamóca</h4>
-              <img
-                src="src/kepek/szamoca.JPG"
-                alt="Szamóca"
-                className="img-fluid"
-              />
-            </div>
-            <div className="col-lg-4 mt-4 arukep">
-              <h4>Málna</h4>
-              <img
-                src="src/kepek/malna.JPG"
-                alt="Málna"
-                className="img-fluid"
-              />
-            </div>
-            <div className="col-lg-4 mt-4 arukep">
-              <h4>Chili paprika</h4>
-              <img
-                src="src/kepek/chili-paprika.jpg"
-                alt="Chili paprika"
-                className="img-fluid"
-              />
-            </div>
+            {flowers.slice(1, flowers.length).map((flower, idx) => (
+              <div className="col-lg-4 mt-4 arukep" key={idx}>
+                <h4>{flower.nev}</h4>
+                <img
+                  src={flower.kepUrl}
+                  alt={flower.nev}
+                  className="img-fluid"
+                />
+              </div>
+            ))}
           </div>
         </main>
         <footer className="container-fluid">

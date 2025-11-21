@@ -17,8 +17,8 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<OpeningPage />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/order" element={<Order />} />
+          <Route path="/termekek" element={<Products />} />
+          <Route path="/rendeles" element={<Order />} />
         </Routes>
       </Router>
     </>
