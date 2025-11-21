@@ -53,21 +53,37 @@ export default function Order() {
             <span id="ar">Ár: 356 Ft</span>
             {flower.map((flower) =>
               flower.keszlet > 0 ? (
-                <form>
-                  <span>Mennyiség: </span>
-                  <input
-                    type="number"
-                    name="mennyiseg"
-                    id="mennyiseg"
-                    min="1"
-                    max={flower.keszlet}
-                  />
-                    <button className="btn btn-warning btn-lg ">
-                      Megrendelem
-                    </button>
+                <form className="d-flex flex-column gap-3 mt-3">
+                  <div>
+                    <span>Mennyiség: </span>
+                    <input
+                      type="number"
+                      name="mennyiseg"
+                      id="mennyiseg"
+                      min="1"
+                      max={flower.keszlet}
+                    />
+                  </div>
+                  <button
+                    className="btn btn-warning btn-lg "
+                    style={{ maxWidth: "200px" }}
+                  >
+                    Megrendelem
+                  </button>
                 </form>
               ) : (
-                <span> Nincs készleten</span>
+                <span
+                  style={{
+                    color: "red",
+                    fontWeight: "bold",
+                    fontSize: 19,
+                    display: "flex",
+                    marginTop: "20px",
+                  }}
+                >
+                  Jelenleg nincs a termékből készleten, keresse fel oldalunkat
+                  később!
+                </span>
               )
             )}
           </div>
