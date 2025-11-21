@@ -37,7 +37,17 @@ export default function Products() {
         <main className="container">
           <div className="row">
             <h2>Vetőmagjaink:</h2>
-            {flowers.map((flower, idx) => (
+            <div className="col-lg-4 mt-4 arukep">
+              <h4>Dália</h4>
+              <Link to="/rendeles">
+                <img
+                  src="/src/kepek/dalia.jpg"
+                  alt="Dália"
+                  className="img-fluid"
+                />
+              </Link>
+            </div>
+            {flowers.slice(1, flowers.length).map((flower, idx) => (
               <div className="col-lg-4 mt-4 arukep" key={idx}>
                 <h4>{flower.nev}</h4>
                 <img
